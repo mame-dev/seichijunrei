@@ -1,0 +1,12 @@
+defaults: &defaults
+  app_id: <%= ENV['FOURSQUARE_APP_ID'] %>
+  app_secret: <%= ENV['FOURSQUARE_APP_SECRET'] %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
