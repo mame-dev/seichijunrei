@@ -32,8 +32,8 @@ group :assets do
     gem 'uglifier', '>= 1.3.0'
     # Use CoffeeScript for .js.coffee assets and views
     gem 'coffee-rails', '~> 4.0.0'
-    gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 end
+gem 'bootstrap-sass'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
