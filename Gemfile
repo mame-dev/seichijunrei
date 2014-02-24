@@ -19,6 +19,12 @@ gem 'mongo_mapper'
 gem 'mongoid', '~> 4.0.0.beta1', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
+gem 'settingslogic'
+gem "json"
+gem "haml"
+gem "typhoeus"
+gem "quimby", github: 'toshipon/quimby'
+
 group :assets do
     # Use SCSS for stylesheets
     gem 'sass-rails', '~> 4.0.0'

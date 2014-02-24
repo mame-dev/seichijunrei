@@ -1,6 +1,8 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
+  before_filter :require_user
+
   # GET /lists
   # GET /lists.json
   def index
@@ -10,6 +12,9 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    if @list.list_id?
+      @venues = foursquare.lists(:list_id => @list[:list_id])
+    end
   end
 
   # GET /lists/new

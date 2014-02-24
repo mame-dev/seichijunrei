@@ -6,8 +6,8 @@
 * Run bundle: ```bundle install```
 * Set API key of foursquare in you envirionment
 
-  ```~/.zshrc
-FOURSQUARE_APP_ID=XXXXXXX
-FOURSQUARE_APP_SECRET=XXXXXXX
+  ```~/.bash_profile
+export FOURSQUARE_APP_ID=XXXXXXX
+export FOURSQUARE_APP_SECRET=XXXXXXX
   ```
 * Run server: ```rails s```
