@@ -15,9 +15,10 @@ class ApplicationController < ActionController::Base
 
     def current_user
       return nil if session[:access_token].blank?
-      client = Foursquare2::Client.new(:oauth_token => session[:access_token], :api_version => Settings.api_version)
+      return @current_user if @current_user
       begin
-        @current_user ||= client.user('self')
+        client = Foursquare2::Client.new(:oauth_token => session[:access_token], :api_version => Settings.api_version)
+        @current_user = client.user('self')
       rescue Exception => e
         nil
       end
