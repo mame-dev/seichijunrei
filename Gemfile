@@ -23,7 +23,7 @@ gem 'settingslogic'
 gem "json"
 gem "haml"
 gem "typhoeus"
-gem "quimby", github: 'toshipon/quimby'
+gem "foursquare2"
 
 group :assets do
     # Use SCSS for stylesheets

@@ -15,19 +15,18 @@ class ApplicationController < ActionController::Base
 
     def current_user
       return nil if session[:access_token].blank?
+      client = Foursquare2::Client.new(:oauth_token => session[:access_token], :api_version => Settings.api_version)
       begin
-        foursquare = Foursquare::Base.new(:access_token => session[:access_token])
-        @current_user ||= foursquare.users.find('self')
-      rescue Foursquare::InvalidAuth
+        @current_user ||= client.user('self')
+      rescue Exception => e
         nil
       end
     end
 
-    def foursquare
-      unless current_user
-        @foursquare ||= Foursquare::Base.new(:client_id => Settings.app_id, :client_secret => Settings.app_secret)
-      else
-        @foursquare ||= Foursquare::Base.new(:access_token => session[:access_token])
+    def system_user
+      unless @system_user
+        @system_user = Foursquare2::Client.new(:client_id => Settings.app_id, :client_secret => Settings.app_secret, :api_version => Settings.api_version)
       end
+      @system_user
     end
 end
